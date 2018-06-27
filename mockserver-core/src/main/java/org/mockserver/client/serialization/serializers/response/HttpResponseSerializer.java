@@ -39,6 +39,10 @@ public class HttpResponseSerializer extends StdSerializer<HttpResponse> {
                 jgen.writeObjectField("body", ((JsonBody) body).getValue());
             } else if (body instanceof BinaryBody) {
                 jgen.writeObjectField("body", body);
+            } else if (body instanceof ParameterBody) {
+                jgen.writeObjectField("body", body);
+            } else if (body instanceof XmlBody) {
+                jgen.writeObjectField("body", body);
             }
         }
         if (httpResponse.getDelay() != null) {
